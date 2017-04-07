@@ -10,7 +10,8 @@ class WordFinder
     binding.pry
     ###### Try permutation. Maybe a join? Do it for each of the letter sizes?
     ###### FUUUUUUUUUUUCK!!!
-    
+
+    ###### This works... ish? But it keeps words with duplicate letters. Sigh.
     # words.each do |word|
     #   if word.chars.all? { |letter| letters.include? letter }
     #     possible_words << word
