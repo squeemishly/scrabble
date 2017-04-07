@@ -1,7 +1,14 @@
+require 'pry'
+
 class Scrabble
 
   def score(word)
-    1
+    total = 0
+    word = word.chars
+    word.each do |letter|
+      total = total + point_values[letter.upcase]
+    end
+    total
   end
 
   def point_values
@@ -16,3 +23,7 @@ class Scrabble
     }
   end
 end
+
+game = Scrabble.new
+binding.pry
+""
