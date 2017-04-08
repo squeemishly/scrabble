@@ -25,5 +25,5 @@ class Scrabble
 end
 
 game = Scrabble.new
-binding.pry
-""
+# binding.pry
+# ""

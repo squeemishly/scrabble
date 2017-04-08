@@ -7,17 +7,25 @@ class WordFinder
 
   def for_letters(letters)
     possible_words = []
-    binding.pry
+    # binding.pry
     ###### Try permutation. Maybe a join? Do it for each of the letter sizes?
     ###### FUUUUUUUUUUUCK!!!
 
     ###### This works... ish? But it keeps words with duplicate letters. Sigh.
-    # words.each do |word|
-    #   if word.chars.all? { |letter| letters.include? letter }
-    #     possible_words << word
-    #   # binding.pry
-    #   end
-    # end
+    words.each do |word|
+      letters_bank = []
+      letters.each do |letter|
+        letters_bank << letter
+      end
+      if word.chars.all? do |letter|
+        letters_bank.include? letter
+        letters_bank.delete(letter)
+      end
+        possible_words << word
+      # binding.pry
+      end
+    end
+    binding.pry
     possible_words
   end
 end

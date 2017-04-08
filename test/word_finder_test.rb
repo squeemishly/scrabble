@@ -19,4 +19,8 @@ class WordFinderTest < Minitest::Test
     all_words = finder.for_letters(['r', 'e', 'x', 'a', 'p', 't', 'o'])
     assert_equal 141, all_words.count
   end
+
+  def test_it_can_find_words_that_must_include_one_letter
+    
+  end
 end
