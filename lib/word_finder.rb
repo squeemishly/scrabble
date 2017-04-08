@@ -7,23 +7,28 @@ class WordFinder
 
   def for_letters(letters)
     nums = (1..letters.length).to_a
+    combined_letters = nums.map do |num|
+      letters.permutation(num).to_a
+    end
     letters_to_words = []
     nums.each do |num|
-      letters_to_words << letters.permutation(num).to_a
-    end
-    arr = []
-    nums.each do |num|
-      letters_to_words[num - 1].each do |word|
-        arr << word.join('')
+      combined_letters[num - 1].each do |word|
+        letters_to_words << word.join('')
       end
     end
-    possible_words = words & arr
+    possible_words = words & letters_to_words
   end
 
   def for_letters_with(letters, must_include)
-    possible_words = []
-
-    binding.pry
+    letters = letters << must_include
+    possible_words = for_letters(letters)
+    correct_words = []
+    possible_words.each do |word|
+      if word.include? must_include
+        correct_words << word
+      end
+    end
+    correct_words
   end
 end
 
