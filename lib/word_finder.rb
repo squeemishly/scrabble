@@ -6,7 +6,6 @@ class WordFinder
   end
 
   def for_letters(letters)
-    possible_words = []
     nums = (1..letters.length).to_a
     letters_to_words = []
     nums.each do |num|
@@ -18,28 +17,7 @@ class WordFinder
         arr << word.join('')
       end
     end
-    words.each do |word|
-      if arr.include? word
-        possible_words << word
-      end
-    end
-    # binding.pry
-
-
-    ### Try this again with permutation
-    # words.each do |word|
-    #   letters_bank = []
-    #   letters.each do |letter|
-    #     letters_bank << letter
-    #   end
-    #   if word.chars.all? do |letter|
-    #     letters_bank.include? letter
-    #     letters_bank.delete(letter)
-    #   end
-    #     possible_words << word
-    #   end
-    # end
-    possible_words
+    possible_words = words & arr
   end
 
   def for_letters_with(letters, must_include)
